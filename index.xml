@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Now on Ethan Cowan</title>
+    <link>https://elocowan.github.io/</link>
+    <description>Recent content in Now on Ethan Cowan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://elocowan.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix GitHub Deployment</title>
+      <link>https://elocowan.github.io/posts/2023-03-04-fix-github-deployment/</link>
+      <pubDate>Sat, 04 Mar 2023 16:00:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-03-04-fix-github-deployment/</guid>
+      <description>My deployment isn&amp;rsquo;t working like it should. It should be updating my live site anytime I push to GitHub. But I don&amp;rsquo;t have things configured right.
+I&amp;rsquo;m going to try using this blog post as a model for how to set up my deployment.
+Create repository at https://github.com/elocowan/lowerpower-hugo.git From within /lowerpower/
+git remote add origin https://github.com/elocowan/lowerpower-hugo.git git branch -M main git push -u origin main Create repository for public files at https://github.</description>
+    </item>
+    
+    <item>
+      <title>Scott Melamed Informational Interview</title>
+      <link>https://elocowan.github.io/posts/2023-03-03-scott-info-interview/</link>
+      <pubDate>Fri, 03 Mar 2023 15:30:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-03-03-scott-info-interview/</guid>
+      <description>how did you get into this? Knew he had to leave community group cause they were running out of money. Will I go to a different community group or try to do something different? Just got engaged.
+Had some rough interpersonal experiences in the neighborhood group. Questioning a lot. Recalling how he&amp;rsquo;s an introvert, but community depends on social element. Felt like he&amp;rsquo;d lost touch with something.
+He thought, &amp;ldquo;There&amp;rsquo;s a good portion of it that doesn&amp;rsquo;t depend on communication/relationships in the same way that organizing does.</description>
+    </item>
+    
+    <item>
+      <title>Deploy on Github Pages</title>
+      <link>https://elocowan.github.io/posts/2023-03-03-deploy-on-github-pages/</link>
+      <pubDate>Fri, 03 Mar 2023 13:28:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-03-03-deploy-on-github-pages/</guid>
+      <description>I&amp;rsquo;m gonna deploy on github pages because I want to see if I can make a podcast feed and I think I need to be deployed to do it.
+Following instructions on Hugo docs
+login to github
+create a new repository called &amp;rsquo;elocowan.github.io&#39;
+push the existing lowerpower project file to that repository from the command line
+git remote add origin https://github.com/elocowan/elocowan.github.io.git git branch -M main git push -u origin main But I run into an authentication problem.</description>
+    </item>
+    
+    <item>
+      <title>What Is a Computer Language?</title>
+      <link>https://elocowan.github.io/posts/2023-03-02-what-is-a-computer-language/</link>
+      <pubDate>Thu, 02 Mar 2023 21:20:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-03-02-what-is-a-computer-language/</guid>
+      <description>When looking at documentation examples, I went first to react. Then I checked out the Hugo docs. Then I ended up at the Go docs. And the Go docs were interesting because they are much more generic.
+Go is a computer language, and it&amp;rsquo;s not just for creating websites, like Hugo and React.
+I&amp;rsquo;m still learning what a computer language is. I looked up, What language is Go written in? I thought maybe I&amp;rsquo;d find out it was written in C, because it seems like C is the thing that happens underneath a lot of high level languages&amp;hellip; But the wikipedia page says that Go&amp;rsquo;s implementation languages are Go, Assembly language (gc); and C++ (gofrontend).</description>
+    </item>
+    
+    <item>
+      <title>Ted Burnham Informational Interview</title>
+      <link>https://elocowan.github.io/posts/2023-03-02-ted-info-interview/</link>
+      <pubDate>Thu, 02 Mar 2023 12:15:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-03-02-ted-info-interview/</guid>
+      <description>How did you get into this work? Radio and podcast journalism freelancing startup with audio/video production - Avenoo Sass Product - early stages, fluidity in the role ended up doing a lot of UI input Developer team needed UX copywriting stuff because they didn&amp;rsquo;t speak english as a first language Then doing UX copywriting for a big telecom - that exposed him to UX side and technical writing - shipping kits where people get kits with a modem, so they had instructions about setting that up&amp;hellip; Physical stuff, instructional manual, in addition to UX copy on an app Current role is technical writing, but at least 50% other stuff.</description>
+    </item>
+    
+    <item>
+      <title>Last Mod feature</title>
+      <link>https://elocowan.github.io/posts/2023-02-28-add-page-info-last-mod/</link>
+      <pubDate>Tue, 28 Feb 2023 13:57:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-28-add-page-info-last-mod/</guid>
+      <description>I made the Now page, and I want it to have a last updated feature.
+I found a blog post about how to do it. Two options, a manual way and a git way. I want to do the git way.
+Hugo can actually hook into your git (version control system) information and pull the last edited times from there. To enable it, just change this setting in your config.</description>
+    </item>
+    
+    <item>
+      <title>The Queue</title>
+      <link>https://elocowan.github.io/posts/2023-02-28-adding-the-queue/</link>
+      <pubDate>Tue, 28 Feb 2023 06:25:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-28-adding-the-queue/</guid>
+      <description>Not quite a To Do list I added a Queue to the navigation bar. This is a place for me to consolidate my little flights of inspiration. I&amp;rsquo;m not calling it a to do list. It&amp;rsquo;s more of an experimental recording.
+I want it to stand in relation to the as yet unrealized Now page. And of course it will stand in relation to the Log page. The log page is the daily stream.</description>
+    </item>
+    
+    <item>
+      <title>Everything I Love is Instructions</title>
+      <link>https://elocowan.github.io/posts/2023-02-28-everything-is-instructions/</link>
+      <pubDate>Tue, 28 Feb 2023 06:03:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-28-everything-is-instructions/</guid>
+      <description>The thread through Technical writing is about instructions. It&amp;rsquo;s all about helping people with reference material. &amp;ldquo;Getting Started.&amp;rdquo; How to do this certain thing.
+Strangely, we live in a world where it&amp;rsquo;s possible to watch a bunch of how-to material for entertainment. It&amp;rsquo;s very easy to be a consumer of &amp;ldquo;how to&amp;rdquo; without every actually doing the thing.
+But I&amp;rsquo;m seeing that there is a thread that connects this Technical Writing aspiration to other parts of my life.</description>
+    </item>
+    
+    <item>
+      <title>Queue</title>
+      <link>https://elocowan.github.io/queue/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/queue/</guid>
+      <description>Queue Website Additions remove home page and about page - don&amp;rsquo;t have uses for those yet change menu options to NOW | PAST | FUTURE? fix deployment process on github pages by setting up gh-pages branch and maybe other things that will allow for a public site and a site that&amp;rsquo;s more for development figure out how to add subdomains to website dream.ethancowan.com body.ethancowan.com add Previous and Next buttons to the post layout maybe use a documentation website as a model for my website?</description>
+    </item>
+    
+    <item>
+      <title>Starting to Network</title>
+      <link>https://elocowan.github.io/posts/2023-02-27-starting-to-network/</link>
+      <pubDate>Mon, 27 Feb 2023 18:10:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-27-starting-to-network/</guid>
+      <description>Who do I know already? The parachute book says LinkedIn is super helpful for finding people to connect with. He recommends doing informational interviews with folks. So I looked up &amp;ldquo;Technical Writer&amp;rdquo; and saw who I am linked to, by various degrees of separation. The first person who came up who has a mutual connection is a Staff Technical Writer at GitHub. Lucien Heart is the mutual connection, so I sent Lucien a kind of generic message explaining that I&amp;rsquo;m looking for folks to talk to about getting into the field.</description>
+    </item>
+    
+    <item>
+      <title>WCIYP 2</title>
+      <link>https://elocowan.github.io/posts/2023-02-26-parachute-life-philosophy/</link>
+      <pubDate>Sun, 26 Feb 2023 06:51:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-26-parachute-life-philosophy/</guid>
+      <description>Parachute Part 2 My philosophy about life: I desperately want to find my purpose in life. I have an intuition that I must have one. But I&amp;rsquo;ve forgotten. There are clues to my purpose. My dreams. My family, why did I choose them? My life experiences, especially the times in my life when I&amp;rsquo;ve felt like I was on the right track and being helped forward by something other than my will power.</description>
+    </item>
+    
+    <item>
+      <title>WCIYP 1</title>
+      <link>https://elocowan.github.io/posts/2023-02-25-parachute-holland-code/</link>
+      <pubDate>Sat, 25 Feb 2023 13:38:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-25-parachute-holland-code/</guid>
+      <description>How can I tell what I should really be doing? I picked up a copy of What Color is Your Parachute at the Goodwill.
+I&amp;rsquo;m starting the self-inventory.
+1. I am a person who has these favorite kinds of people. My preferred type of people to work with are the Investigative, the Artistic and the Social. Holland Code IAS.
+The people we work with are either energy drainers or energy creators.</description>
+    </item>
+    
+    <item>
+      <title>Bigger Picture</title>
+      <link>https://elocowan.github.io/posts/2023-02-25-bigger-picture/</link>
+      <pubDate>Sat, 25 Feb 2023 06:52:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-25-bigger-picture/</guid>
+      <description>This is all about where I record my life. In the short term past:
+I used to write down my dreams in Roam then I re-read the Derek Sivers post where he recommends using plain text files That was a big transition, actually. Because plain text led me to vim. Vim lead me back to nerdy computer stuff. I realized I could write little functions to make it easier to journal.</description>
+    </item>
+    
+    <item>
+      <title>More than Just Posts</title>
+      <link>https://elocowan.github.io/posts/2023-02-24-more-than-posts/</link>
+      <pubDate>Fri, 24 Feb 2023 06:39:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-24-more-than-posts/</guid>
+      <description>Pages vs. Posts I have lots of ideas about what I want to do with computers. The most pressurized idea is Get a Job.
+But there are other ideas too.
+I want to learn C. I want to go through the curriculum of Teach Yourself CS. I want to build a habit tracker. I want to build a screentime dashboard for macOS, to curb my bad screentime habits. Basically, I want to understand computers better, because they are so ubiquitous and the site of almost all of my compulsive behavior.</description>
+    </item>
+    
+    <item>
+      <title>Editing and Version Histories</title>
+      <link>https://elocowan.github.io/posts/2023-02-23-editing-and-version-histories/</link>
+      <pubDate>Thu, 23 Feb 2023 19:03:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-23-editing-and-version-histories/</guid>
+      <description>I would like to start editing the posts that I&amp;rsquo;ve got on the site now. But I don&amp;rsquo;t want to lose any information about what they are/were like in their original state. So I think I need to use and understand git at this point.
+For context, I haven&amp;rsquo;t initiated git on this project yet. And I definitely haven&amp;rsquo;t pushed anything to github. And I&amp;rsquo;m even farther away from publishing anything&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>Adding Posts</title>
+      <link>https://elocowan.github.io/posts/2023-02-23-first-posting/</link>
+      <pubDate>Thu, 23 Feb 2023 11:10:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-23-first-posting/</guid>
+      <description>Finally I&amp;rsquo;ll get to the point where I can add these blog posts to the blog. I am expecting this step to be very gratifying. I am also expecting it to include lots of reformatting, because I&amp;rsquo;ve been writing all of this stuff as plain text and I&amp;rsquo;ll need to make it all into MarkDown. I&amp;rsquo;m excited about MarkDown because it&amp;rsquo;s still so close to plain text, and I think it can be opened as plain text (and all of this because I liked Derek Sivers point about writing in plain text), but MarkDown will have some formatting options.</description>
+    </item>
+    
+    <item>
+      <title>Flesh on the bones</title>
+      <link>https://elocowan.github.io/posts/2023-02-23-flesh-on-the-bones/</link>
+      <pubDate>Thu, 23 Feb 2023 09:12:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-23-flesh-on-the-bones/</guid>
+      <description>9:12am
+The next bit of the process is still about the basics, but it&amp;rsquo;s about putting more flesh on the bones of the website.
+Somehow it&amp;rsquo;s important to me that I can imagine this is all getting set up in a way that will allow more growth in the future. I imagine eventually I&amp;rsquo;ll be wanting to do and learn things about computer life that will go way beyond a static website &amp;ndash; like learning new languages, or going through the Teach Yourself CS series, or building a habit tracker app, or building the amino acid app for Irene.</description>
+    </item>
+    
+    <item>
+      <title>Literate Programming?</title>
+      <link>https://elocowan.github.io/posts/2023-02-23-literate-programming/</link>
+      <pubDate>Thu, 23 Feb 2023 07:30:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-23-literate-programming/</guid>
+      <description>Is what I am doing a version of &amp;ldquo;Literate Programming?&amp;rdquo; I&amp;rsquo;m not sure, but I am interested in learning more about that and what it&amp;rsquo;s relationship might be to documentation.</description>
+    </item>
+    
+    <item>
+      <title>Skeleton from Scratch</title>
+      <link>https://elocowan.github.io/posts/2023-02-23-hugo-skeleton/</link>
+      <pubDate>Thu, 23 Feb 2023 05:39:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-23-hugo-skeleton/</guid>
+      <description>5:39am
+If I do the quickstart instructions from the Hugo page, I end up with a site that is visible on the localhost immediately. So that means the file system it initializes is &amp;lsquo;complete&amp;rsquo; in some sense of the word.
+On the other hand, if I initialize my own site, the file system skeleton is there, but it&amp;rsquo;s relatively empty, and nothing is visible on local host immediately. &amp;ldquo;No page found&amp;rdquo; when I start the development server.</description>
+    </item>
+    
+    <item>
+      <title>Slow Enough to Document</title>
+      <link>https://elocowan.github.io/posts/2023-02-22-documentation-principle/</link>
+      <pubDate>Wed, 22 Feb 2023 16:40:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-22-documentation-principle/</guid>
+      <description>4:40pm
+One principle I&amp;rsquo;d like to follow is to never go faster than I can document. I have already hit a point with the hugo thing where I can feel myself wanting to speed through something.
+I want to do a post about what happens when I do the quicksite start through the hugo website compared to What happens when I initialize a site totally from scratch
+What files do I end up with in each case?</description>
+    </item>
+    
+    <item>
+      <title>Setting Up Hugo</title>
+      <link>https://elocowan.github.io/posts/2023-02-22-setting-up-hugo/</link>
+      <pubDate>Wed, 22 Feb 2023 13:15:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-22-setting-up-hugo/</guid>
+      <description>To set up Hugo, I&amp;rsquo;ll use the docs. If I were only setting up hugo, I&amp;rsquo;d just follow the instructions. But because my larger mission is to become a technical writer, I&amp;rsquo;m reading the docs through 2 lenses:
+user lens aspiring writer lens I&amp;rsquo;ll be switching back and forth between these two lenses throughout this post, trying to understand both how to set up hugo and how the hugo docs team is guiding me through the experience.</description>
+    </item>
+    
+    <item>
+      <title>Where do I start?</title>
+      <link>https://elocowan.github.io/posts/2023-02-21-where-do-i-start/</link>
+      <pubDate>Tue, 21 Feb 2023 04:45:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-21-where-do-i-start/</guid>
+      <description>There&amp;rsquo;s a LinkedIn group for Technical Writers. I found an interesting post about learning API documentation, a special subset of technical writing. The author mentioned a learning resource called idratherbewriting.com. After an hour of poking around there, seems as good a place to start as any.
+I skimmed the author&amp;rsquo;s free course &amp;ldquo;Documenting APIs&amp;rdquo; and found where he recommends using static site generators for making documentation websites.
+In the developer documentation space, static site generators dominate the authoring and publishing landscape.</description>
+    </item>
+    
+    <item>
+      <title>Waking Up</title>
+      <link>https://elocowan.github.io/posts/2023-02-21-waking-up/</link>
+      <pubDate>Tue, 21 Feb 2023 02:30:00 +0000</pubDate>
+      
+      <guid>https://elocowan.github.io/posts/2023-02-21-waking-up/</guid>
+      <description>Where am I? I wake up from a dream.
+I open my computer to write it down. Then for some reason, I check my email. Then somehow I&amp;rsquo;m on LinkedIn. God, why? How did I get here? Why am I on LinkedIn at 2:30 in the morning?
+Most of my LinkedIn connections are people I went to code school with. Coding bootcamp. &amp;ldquo;$17k. Three months. And all I got was this stinkin&amp;rsquo; hoodie.</description>
+    </item>
+    
+  </channel>
+</rss>

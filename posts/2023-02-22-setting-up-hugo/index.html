@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Setting Up Hugo</title>
+
+<link rel="stylesheet" href="https://elocowan.github.io/sass/main.min.css">
+
+</head>
+
+<body>
+  <header>
+  <h1>
+    <a href="/">Ethan Cowan</a>
+  </h1>
+</header>
+
+  <nav>
+  <ul>
+    <li><a href="/">Now</a></li>
+    <li><a href="/posts/">Past</a></li>
+    <li><a href="/queue/">Queue</a></li>
+  </ul>
+</nav>
+
+  
+  <h1>Setting Up Hugo</h1>
+  <p>February 22, 2023</p>
+  <p>To set up Hugo, I&rsquo;ll use the docs.
+If I were <em>only</em> setting up hugo, I&rsquo;d just follow the instructions.
+But because my larger mission is to become a technical writer, I&rsquo;m reading the docs through 2 lenses:</p>
+<ol>
+<li>user lens</li>
+<li>aspiring writer lens</li>
+</ol>
+<p>I&rsquo;ll be switching back and forth between these two lenses throughout this post, trying to understand both how to set up hugo <em>and</em> how the hugo docs team is guiding me through the experience.</p>
+<h2 id="where-do-the-docs-start">Where do the docs start?</h2>
+<p>The first thing on the <a href="https://gohugo.io/documentation/">hugo documentation page</a> is &ldquo;Hugo&rsquo;s Security Model.&rdquo;
+Why is security the first thing?</p>
+<blockquote>
+<p>&ldquo;When developing and building your site, the runtime is the hugo executable.
+Securing a runtime can be a real challenge.&rdquo;</p>
+</blockquote>
+<p>What is a runtime?
+A runtime is when the program runs.
+In the case of Hugo, it&rsquo;s when Hugo builds the website&hellip; it makes the static HTML output.
+The program is the hugo program that &lsquo;does stuff&rsquo; to make the website happen.</p>
+<p>I think that the problem is, the files for Hugo projects are located in the filesystem of the computer, and the build requires Hugo to open some passage between the file system and some HTTP something&hellip; or is it passage between the file system and a slew of uncheckable dependencies that are part of the Hugo program?</p>
+<p>Or the problem is in all of the dependencies that are part of the build process.
+There have been high visibility cases of malicious software within dependencies.</p>
+<p>The point is that we need ways to keep malicious code from accessing the contents of certain files, getting secrets or sensitive information from a users file system.</p>
+<p>&ldquo;Hugo&rsquo;s main approach is that of sandboxing and a security policy with strict defaults:</p>
+<ul>
+<li>Hugo has a virtual file system
+<ul>
+<li>only the main project (not third party components) is allowed to mount directories or files outside the project root.</li>
+</ul>
+</li>
+<li>Only the main project can walk symbolic links</li>
+<li>User-defined components have read-only access to the filesystem</li>
+</ul>
+<p>The thing is, they want to show that they are taking precautions to protect users against code injection.
+I&rsquo;m not super worried about that, but maybe I should be?</p>
+<p>Anyway, for me it&rsquo;s a lot of work to understand a single page of this Hugo documentation.</p>
+<p>Some questions that come up:
+I know that hugo is built with the Go language.
+What more do I need to know about Go?</p>
+<p>How much do I need to GET before I just install Hugo and get started making a website?</p>
+<p>Then there&rsquo;s a section about the General Data Protection Regulation (GDPR), which is law in the EU and seems good everywhere.</p>
+<p>&ldquo;Hugo is a static site generator.
+By using Hugo you are standing on very solid ground.
+Static HTML files on disk are much easier to reason about compared to server and database driven web sites.</p>
+<p>But even static websites can integrate with external services&hellip;&rdquo;</p>
+<p>So there are privacy settings related to disabling tracking by other websites like disqus, googleAnalytics, instagram, etc.</p>
+<p>Then, with that security and privacy STUFF out of the way&hellip;</p>
+<h2 id="what-is-hugo">What is Hugo?</h2>
+<p>&ldquo;Hugo is a static site generator.
+Unlike systems that dynamically build a page with each vistor request, Hugo builds pages when you create or update your content.
+Since websites are viewed more often than they are edited, Hugo is designed to provide an optimal viewing experience for your website&rsquo;s end users
+AND
+an ideal writing experience for website authors.&rdquo;</p>
+<p>I notice they don&rsquo;t say website architects or coders or engineers.</p>
+<p>&ldquo;What does Hugo do?
+In technical terms, Hugo takes a source directory of files and templates and uses these as input to create a complete website.&rdquo;</p>
+<p>So Hugo is a big function.
+It takes input of files and templates
+DOES STUFF
+then outputs a complete website.</p>
+<p>&ldquo;Who should use hugo?
+Hugo is for people that prefer writing in a text editor over a browser. (That&rsquo;s me!)
+Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+Hugo is for people building a blog, a company site, a portfolio site, documentation, a single landing page, or a website with thousands of pages.&rdquo;</p>
+<p>Implication is that Hugo is NOT for people who want a dynamic website with user inputs&hellip; More for websites to be read than websites to be edited/interacted with. (I think).</p>
+<p>Features that pique my interest:
+&ldquo;taxonomies including categories and tags
+sort content as you desire through powerful template functions
+automatic table of contents generation
+dynamic menu creation&rdquo;</p>
+<p>And probably more stuff that I don&rsquo;t yet even realize I want.</p>
+<p>&ldquo;The purpose of website generators is to render content into HTML files.</p>
+<p>When you make a request to an HTTP server (a server using the Hyper Text Transfer Protocol), the server responds to the request by sending HTML files to the browser to be viewed.</p>
+<p>On dynamic sites, the code to generate the HTML files lives in a database somewhere, and when a user requests the HTML files, the server starts a process to create a new HTML file every time an end user requests a page.</p>
+<p>That takes time.
+In order to save time, &ldquo;dynamic site generators were programmed to cache their HTML files to make things faster.
+A cached HTML file is a static HTML file.&rdquo;</p>
+<p>&ldquo;Hugo takes caching a step further and all HTML files are rendered on your computer.&rdquo;
+SO THAT IS WHAT HUGO DOES
+Hugo is a big function that takes my files and templates
+DOES STUFF
+then outputs HTML files all organized correctly to function as a website.</p>
+<p>The HTML files are on my local machine.
+I copy the HTML files to the computer that hosts the HTTP server.
+So when people make a request to the server for my HTML files, there they are, ready to go.
+They are static and simple.</p>
+<p>HTTP servers are very good at sending files.
+So it&rsquo;s fast.</p>
+<p>So what is happening when I &ldquo;install hugo&rdquo; is that I&rsquo;m downloading the Hugo function so I can use it to make HTML files.</p>
+<h2 id="actually-starting-the-setup">Actually starting the setup</h2>
+<p>Prerequisites:</p>
+<blockquote>
+<p>&ldquo;Although not required in all cases, Git and Go are often used when working with Hugo.&rdquo;</p>
+</blockquote>
+<p>So, I download Go.
+In the future I want to learn more about Go, but right now I just want to download it.</p>
+<p>To install hugo, I could download the binary code, extract the archive, move the executable to the desired directory, add the directory to the PATH environment variable, verify I have execute permission on the file, then execute the binary to install that way&hellip;.</p>
+<p>BUT, I&rsquo;m just going to use Homebrew, a package manager for macOS.</p>
+<p>Then I&rsquo;ll use the suggested quickstart, to &ldquo;learn to create a Hugo site in minutes.&rdquo;</p>
+<p>Quickstart site is up and running.
+Super quick start.
+I have questions about what it means to have a development server going.
+I&rsquo;m pretty sure it means that the Hugo program makes it so that I can edit files on the computer and see immediate results in the broswer.
+I&rsquo;m at a URL called localhost:1313.
+I don&rsquo;t think I even need to be connected to the internet.
+It would be fun to look under the hood to see what is going on when the Hugo development server is running.
+Maybe that&rsquo;s for another time&hellip;</p>
+<p>Cool, so when you run the hugo command &lsquo;hugo&rsquo;, it builds the site.
+Or as they say, it &lsquo;publishes&rsquo; the site.
+It fills up the public file in the project directory with the HTML files that reflect the latest changes.</p>
+<p>It&rsquo;s cool to go through and look at what gets made.
+What is an xml file?
+It says in the docs that xml files are &ldquo;RSS feeds&rdquo; for each section
+What is all the extra code that ends up in the index.html file?</p>
+<p>It says in the documentation, &ldquo;Hugo does not clear the public directory before building your site.
+Manually clear the contents of the public directory before each build to remove draft, expired, and future content.&rdquo;</p>
+<p>The next part in the documentation is Modules, and I&rsquo;m pretty cooked from working through this much content, so this post will end here.</p>
+<p>Next time, I&rsquo;ll find out, What is a module?</p>
+
+
+  
+<div class="post-info-last-mod">
+    created:
+    <time datetime="2023-02-22 13:15:00 &#43;0000 UTC" title="2023-02-22 13:15:00 &#43;0000 UTC">
+        February 22, 2023
+    </time>
+</div>
+
+
+    
+     
+        <div class="post-info-last-mod">
+            updated:
+            <time datetime="2023-03-01 17:14:42 -0700 MST" title="2023-03-01 17:14:42 -0700 MST">
+	        March 1, 2023
+            </time>
+	</div>
+    
+
+
+  
+  <footer>
+    Website made by Ethan Cowan in 2023
+  </footer>
+
+
+</body>
+</html>

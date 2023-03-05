@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Skeleton from Scratch</title>
+
+<link rel="stylesheet" href="https://elocowan.github.io/sass/main.min.css">
+
+</head>
+
+<body>
+  <header>
+  <h1>
+    <a href="/">Ethan Cowan</a>
+  </h1>
+</header>
+
+  <nav>
+  <ul>
+    <li><a href="/">Now</a></li>
+    <li><a href="/posts/">Past</a></li>
+    <li><a href="/queue/">Queue</a></li>
+  </ul>
+</nav>
+
+  
+  <h1>Skeleton from Scratch</h1>
+  <p>February 23, 2023</p>
+  <p>5:39am</p>
+<p>If I do the quickstart instructions from the Hugo page, I end up with a site that is visible on the localhost immediately.
+So that means the file system it initializes is &lsquo;complete&rsquo; in some sense of the word.</p>
+<p>On the other hand, if I initialize my own site, the file system skeleton is there, but it&rsquo;s relatively empty, and nothing is visible on local host immediately.
+&ldquo;No page found&rdquo; when I start the development server.</p>
+<p>So what makes the difference?
+The quickstart site shows it has 7 pages, 1 static file and 1 sitemap.
+The from-scratch site shows it has 3 pages, no static files and 1 sitemap.</p>
+<p>In the from scratch site, there are 2 files I can see.
+default.md is in the archetypes folder
+config.toml sits in the root directory (&rsquo;test&rsquo; directory)
+all the other skeletal folders are empty
+If those two files are &lsquo;pages,&rsquo; then I wonder what is the third page?
+If those two files are not pages, then what are the three pages listed on the summary?</p>
+<p>In the quickstart site, there are more files.
+Still have default.md in the archetypes folder
+Still have config.toml in roote directory (&lsquo;quickstart&rsquo; directory)
+Now there are two documents deep in the &ldquo;resources&rdquo; directory.
+resources &gt; _gen &gt; assets &gt; css &gt; ananke &gt; css &gt; main.css&hellip;.content
+resources &gt; _gen &gt; assets &gt; css &gt; ananke &gt; css &gt; main.css&hellip;.json
+AND
+there is an entire THEME in the themes directory
+This theme is called ananke, and it has it&rsquo;s own skeletal structure with significant meat on the bones.
+It has an folder called &rsquo;example site&rsquo; that contains content.
+It has layouts.
+It has a bunch of stuff.</p>
+<p>But I don&rsquo;t think all of that stuff is being run when I start the hugo development server because all I see when I start the server is an empty layout with &lsquo;My New Site&quot; titles, etc.</p>
+<p>I&rsquo;m not sure where these html files are.
+I don&rsquo;t think they&rsquo;re inside the Theme folder because the theme folder has a bunch more stuff in it that I&rsquo;m not seeing on the development page.
+I don&rsquo;t think I&rsquo;m seeing the example site.</p>
+<p>What I do see is a README.md and that&rsquo;s actually a key because it has instructions about getting the full example site going.
+What I don&rsquo;t see is a full working site.
+It&rsquo;s empty of content.
+It&rsquo;s just the frame, or the layout?
+So I&rsquo;m not sure if that&rsquo;s because I&rsquo;m doing something wrong or if the setup automation doesn&rsquo;t run entirely smoothly.</p>
+<p>Either way, after poking around the readme for a little bit, I&rsquo;m ready to go back to trying to build a site from the skeleton up.
+I think I&rsquo;ll learn more that way about how it all works.</p>
+<p>I&rsquo;m going to use a tutorial/walkthrough that&rsquo;s linked on the hugo docs, the hugo tutorial by CloudCannon.
+I&rsquo;m going to call my new site lowerpower.
+I thought of it this morning when I was lying in bed feeling my lower abdomen, thinking about maturity, and thinking about the ubiquitous 12 step phrase &ldquo;Higher Power&rdquo;</p>
+<p>The CloudCannon walkthrough gives a nice overview of the scaffolding or skeleton of the site.
+It gives brief but informative sentences about what each directory is for.</p>
+<p>Then part 2 explains that &ldquo;a layout is used for all the &lsquo;framing&rsquo; on a page around the content.&rdquo;
+Header, footer, menus.</p>
+<p>&ldquo;In Hugo, each page on the site is a content file.
+At the top is a small snippet of metadata called front matter, followed by markdown.
+The goal of the content file is, well, to store the content in its purest form.
+There&rsquo;s rarely any HTML or other presentation logic in a content file.</p>
+<p>All of the fancy HTML to display and format the content lives in a layout.
+One layout might be used for multiple content pages.
+Other times, particularly if you&rsquo;re doing something intricate, you might have a layout specifically for an individual content page.&rdquo;</p>
+<p>&ldquo;There&rsquo;s a Hugo concept called Page Bundles which can be tricky to get your head around.
+We&rsquo;re going to do the bare minimum here to get your site going.</p>
+<p>By default, content pages use a layout called single.
+Creating a content file which is named exactly _index.md, underscore and all, is the exception to this.
+This page acts like a table of contents for the pages around it and uses a layout called list by default.</p>
+<h2 id="create-a-file-called-_indexmd-in-the-directory-content-with-the-following-content">So&hellip;
+Create a file called _index.md in the directory /content/ with the following content:</h2>
+<h2 id="title-home">title: Home</h2>
+<p>The home page</p>
+<p>Okay, so the first piece of content&hellip; what happens when I run the development server now?
+I still get some of the same warnings I got before:
+WARN 2023/02/23 06:34:17 found no layout file for &ldquo;HTML&rdquo; for kind &ldquo;home&rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2023/02/23 06:34:17 found no layout file for &ldquo;HTML&rdquo; for kind &ldquo;taxonomy&rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.
+WARN 2023/02/23 06:34:17 found no layout file for &ldquo;HTML&rdquo; for kind &ldquo;taxonomy&rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.</p>
+<p>So, I can see that when hugo builds the site, it&rsquo;s looking for layout files and actually those layout files are required for the build to run smoothly or complete.
+I still get &ldquo;page not found&rdquo; in the browser.</p>
+<p>So I have to make a layout</p>
+<p>&ldquo;Hugo has a hierarchy to figure out which layout to use for a content_d file.
+The last fallback is looking for a layout in the _default directory.</p>
+<p>So&hellip; create a new directory inside /layouts/ called _default and inside, create list.html with the following content:</p>
+<p>&lt;!doctype html&gt;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Okay, so that is a very bare bones HTML &rsquo;layout&rsquo;
+This is the default list.html layout which hugo will use as the layout for _index.md.
+So when hugo build the website, it will:</p>
+<ol>
+<li>see _index.md in the content directory</li>
+<li>look for a layout file in the _default directory</li>
+<li>find the list.html layout (used for index pages, and what else?) in the layout directory</li>
+<li>build an HTML file by putting the content into the layout
+(this is why there are &ldquo;{{&rdquo; &ldquo;}}&rdquo; - those contain the content. The content is a variable being passed into a layout function)</li>
+</ol>
+<p>And voila, the content shows up on the development server now :)
+There is a title that shows up in the tab &ldquo;Home&rdquo;
+And there is content on the page &ldquo;The home page&rdquo;</p>
+<p>Okay, now the tutorial goes on to a second layout, an about page
+Create /content/about.md (note that there is no underscore - that means the underscore on _index.md is an important symbol to the hugo program, probably a symbol that helps the program identify where to start when it&rsquo;s first running through (parsing?) the content of all the files).</p>
+<p>Or is the underscore an indication of something else?
+Maybe it tells the program which layout to look for?
+Earlier warnings were about not finding a layout for kind &ldquo;home&rdquo; or for kind &ldquo;taxonomy&rdquo;
+Did that have to do with the underscore?
+What is a <em>kind</em>?</p>
+<p>Now if I just try to run the build with this second about.md file, what will happen?
+Will it build?</p>
+<p>Ethans-MacBook-Air:lowerpower dreamer$ hugo serve
+Start building sites …
+hugo v0.110.0+extended darwin/amd64 BuildDate=unknown
+WARN 2023/02/23 06:54:37 found no layout file for &ldquo;HTML&rdquo; for kind &ldquo;page&rdquo;: You should create a template file which matches Hugo Layouts Lookup Rules for this combination.</p>
+<p>Another warning!
+So the about.md page looks for a different <em>kind</em> of layout, a layout for kind &ldquo;page&rdquo;
+A different function, not the list.html function.</p>
+<p>about.md looks for a layout named &lsquo;single&rsquo; by default.</p>
+<p>&ldquo;We could clone /layouts/_default/list.html to /layouts/_default/single.html and it would work fine
+BUT
+You&rsquo;d be left maintaining two very similar versions of the same layout.
+We want to reduce repetition and make our lives easier wherever possible.</p>
+<p>Instead create a new layout at /layouts/_default/baseof.html with the following content:</p>
+<p>&lt;!doctype html&gt;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Okay, so baseof.html sounds like it can be the building block of other kinds of layouts?
+&ldquo;This is almost identical to the list layout, with one minor change.
+Instead of outputting {{ .Content }}, we now have a main ‘block’.
+This block is a placeholder that other layouts can use to only specify that part of the page.&rdquo;</p>
+<p>Okay, this seems important.
+A block is a placeholder that other layouts can use to only specify that part of the page.
+So this being baseof.html makes more sense when I think that this has a placeholder for other layouts to use.
+The syntax of {{ block &ldquo;main&rdquo; . }} seems important.
+How does this work?
+How are other layouts going to define &ldquo;main&rdquo;?
+What is the &ldquo;.&rdquo; doing?</p>
+<p>And this isn&rsquo;t enough to get the about page built.
+I still get the same error about no layout file for &ldquo;HTML&rdquo; for kind &ldquo;page&rdquo;</p>
+<p>But now the next step of the tutorial explains I need to update the list.html layout so that it can play nicely with this new baseof.html layout</p>
+<p>&ldquo;Replace the entire contents of /layouts/_default/list.html with the following:
+{{ define &ldquo;main&rdquo; }}
+{{ .Content }}
+{{ end }}</p>
+<p>Okay, so now I see how a layout block is defined.
+use {{ define &ldquo;&hellip;&rdquo; }}
+{{ .Content }}
+{{ end }}</p>
+<p>Now the baseof.html file will have something nice to handle when it tries to execute that function to put the main block into the body of the html doc.
+I still don&rsquo;t know what the &ldquo;.&rdquo; means exactly.</p>
+<p>What happens if I try to build now?
+I think I&rsquo;ll still get the warning about the page layout because all I&rsquo;ve done is reset the list.html.
+Probably the next step is to make the html layout for the kind &ldquo;page&rdquo;</p>
+<p>Yep, Create /layouts/_default/single.html with the same code as list.html and
+Voila!</p>
+<p>Now when I run the build, it throws no warnings and I can see both the index and the about page in the broswer!
+Cool!</p>
+<p>So, to review:
+When hugo builds, it seems like these are the steps:</p>
+<ol>
+<li>Look for content</li>
+<li>When content is found, look for a layout (function) to put that &ldquo;content in its purest form (markdown)&rdquo; into an HTML structure</li>
+<li>If it&rsquo;s an index file (with an underscore), look for layouts for kinds &ldquo;home&rdquo; and &ldquo;taxonomy&rdquo;</li>
+<li>If it&rsquo;s a regular md file, look for a layout for kind &ldquo;page&rdquo;</li>
+<li>If those elements are found, then put the markdown into the html layouts!</li>
+</ol>
+<p>And I&rsquo;m seeing these things on the development server (which is nice), but I also notice that I do NOT see anything in /public/ which means that hugo hasn&rsquo;t actually BUILT anything yet.
+It has some temporary html stuff it&rsquo;s showing, but no actually html files written into the public directory yet.</p>
+<p>2023-02-23 7:20am</p>
+
+
+  
+<div class="post-info-last-mod">
+    created:
+    <time datetime="2023-02-23 05:39:00 &#43;0000 UTC" title="2023-02-23 05:39:00 &#43;0000 UTC">
+        February 23, 2023
+    </time>
+</div>
+
+
+    
+    
+
+
+  
+  <footer>
+    Website made by Ethan Cowan in 2023
+  </footer>
+
+
+</body>
+</html>

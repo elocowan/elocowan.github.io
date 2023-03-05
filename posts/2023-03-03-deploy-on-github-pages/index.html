@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Deploy on Github Pages</title>
+
+<link rel="stylesheet" href="https://elocowan.github.io/sass/main.min.css">
+
+</head>
+
+<body>
+  <header>
+  <h1>
+    <a href="/">Ethan Cowan</a>
+  </h1>
+</header>
+
+  <nav>
+  <ul>
+    <li><a href="/">Now</a></li>
+    <li><a href="/posts/">Past</a></li>
+    <li><a href="/queue/">Queue</a></li>
+  </ul>
+</nav>
+
+  
+  <h1>Deploy on Github Pages</h1>
+  <p>March 3, 2023</p>
+  <p>I&rsquo;m gonna deploy on github pages because I want to see if I can make a podcast feed and I <em>think</em> I need to be deployed to do it.</p>
+<p>Following instructions on <a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hugo docs</a></p>
+<p>login to github</p>
+<p>create a new repository called &rsquo;elocowan.github.io'</p>
+<p>push the existing lowerpower project file to that repository from the command line</p>
+<pre tabindex="0"><code>git remote add origin https://github.com/elocowan/elocowan.github.io.git
+git branch -M main
+git push -u origin main
+</code></pre><p>But I run into an authentication problem.</p>
+<p>remote: Support for password authentication was removed on August 13, 2021.</p>
+<p>remote: Please see <a href="https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls">this doc</a> for information on currently recommended modes of authentication.</p>
+<p>So i could use a personal access token.</p>
+<p>Or, another option seems to be using <a href="https://docs.github.com/en/github-cli/github-cli/quickstart">GitHub CLI</a>.
+That seems like the better option so I&rsquo;ll do that.</p>
+<p>install GitHub CLI</p>
+<pre tabindex="0"><code>brew install gh
+</code></pre><p>then use gh to authenticate my GitHub account</p>
+<pre tabindex="0"><code>gh auth login
+</code></pre><p>Follow the instructions for that authentication, then it&rsquo;s all working.</p>
+<p>so when I push to the main branch of that new repository, it works.</p>
+<p>Now all the stuff on my computer is also in the github repository.
+That doesn&rsquo;t mean that I see anything when I go to elocowan.github.io</p>
+<p>The next step was a bit confusing.
+The instructions say</p>
+<blockquote>
+<p>Create a file in .github/workflows/gh-pages.yml containing the following content (based on actions-hugo):</p>
+</blockquote>
+<pre tabindex="0"><code>name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch that will trigger a deployment
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: &#39;latest&#39;
+          # extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == &#39;refs/heads/main&#39;
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+</code></pre><p>What&rsquo;s confusing is &ldquo;create a file in .github/workflows/gh-pages.yml&rdquo;
+I guess that means in the project directory?
+I make a .github director with a workflows directory inside it.
+Then I open gh-pages.yml in vim, and paste that stuff in.
+Save it.
+Will that do the trick?</p>
+<p>Now I will push those changes to the git respository.</p>
+<pre tabindex="0"><code>git add .
+git commit
+git push
+</code></pre><p>All the changes, including the yaml file, show up in my github repository, but still nothing showing at elocowan.github.io.</p>
+<p>I think it&rsquo;s because of this:</p>
+<blockquote>
+<p>the GitHub Actions in these instructions publish to the gh-pages branch. Therefore, if you are publishing GitHub pages for a user or organization, you will need to change the publishing branch to gh-pages. See the instructions later in this document.</p>
+</blockquote>
+<p>I think that means that Hugo is setup to publish to gh-branches&hellip; and that branch doesn&rsquo;t even exist on my github repository.</p>
+<p>I wonder, if I run the <code>hugo</code> command, will it make that branch?</p>
+<p>What I did instead was, use the settings in the github repository to make a page out of that repository, which required making the repo public.
+Then github had a suggested yaml file (hugo.yml) for setting up a Hugo deployment, so I used that, and it was set up to deploy when there are changes to the main branch.
+I don&rsquo;t think I need the yaml file that was suggested on the hugo docs, the gh-pages branch. I&rsquo;m not sure&hellip;</p>
+<p>But the last thing I did was change the config.toml file to have &rsquo;elocowan.github.io&rsquo; as the baseURL, and then it worked when I go to elocowan.github.io!</p>
+
+
+  
+<div class="post-info-last-mod">
+    created:
+    <time datetime="2023-03-03 13:28:00 &#43;0000 UTC" title="2023-03-03 13:28:00 &#43;0000 UTC">
+        March 3, 2023
+    </time>
+</div>
+
+
+    
+    
+
+
+  
+  <footer>
+    Website made by Ethan Cowan in 2023
+  </footer>
+
+
+</body>
+</html>

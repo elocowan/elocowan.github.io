@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Adding Posts</title>
+
+<link rel="stylesheet" href="https://elocowan.github.io/sass/main.min.css">
+
+</head>
+
+<body>
+  <header>
+  <h1>
+    <a href="/">Ethan Cowan</a>
+  </h1>
+</header>
+
+  <nav>
+  <ul>
+    <li><a href="/">Now</a></li>
+    <li><a href="/posts/">Past</a></li>
+    <li><a href="/queue/">Queue</a></li>
+  </ul>
+</nav>
+
+  
+  <h1>Adding Posts</h1>
+  <p>February 23, 2023</p>
+  <p>Finally I&rsquo;ll get to the point where I can add these blog posts to the blog.
+I am expecting this step to be very gratifying.
+I am also expecting it to include lots of reformatting, because I&rsquo;ve been writing all of this stuff as plain text and I&rsquo;ll need to make it all into MarkDown.
+I&rsquo;m excited about MarkDown because it&rsquo;s still so close to plain text, and I think it can be opened as plain text (and all of this because I liked Derek Sivers point about writing in plain text), but MarkDown will have some formatting options.</p>
+<p>And once there is content on the blog, it will be possible to play with it.
+I will be able to play with the formatting, play with the CSS and the styling.
+Play with table of contents stuff&hellip;
+There will be stuff to play with :)</p>
+<h2 id="then-make-a-file-inside-posts-called-_indexmd-with-the-following">So here we go, making the blog.
+First, make a directory called posts in the /content/ directory
+then make a file inside posts called _index.md with the following:</h2>
+<h2 id="title-blog">title: Blog</h2>
+<p>&ldquo;_index.md - remember what that means?
+It&rsquo;s a table of contents file, and in this case it will be listing the posts.</p>
+<p>At this point, it&rsquo;s going to try to use the /layouts/_defualts/list.html layout.</p>
+<p>But you don&rsquo;t want to use this layout as this page doesn&rsquo;t have any content (and we want the content to come from a template that will list the posts).
+So we want a new layout specifically for listing posts.</p>
+<p>The way the Hugo layout hierarchy works is it will first look for alayout that matches the current section/directory, then fall back to the global default in _default.
+In other words, we can create a new directory called posts in the layouts directory, and inside create &ldquo;list.html&rdquo; with the following content:</p>
+<p>{{ define &ldquo;main&rdquo; }}</p>
+<!-- raw HTML omitted -->
+<p>There are a few new concepts in this piece of code:</p>
+<ol>
+<li>A list page (_index.html) has an array of all its children pages with the variable .Pages.</li>
+<li>.Date has format called on it and gets passed a random date in 2006. Why is that? It’s a quirk of Go for formatting dates. You can read more about it here.</li>
+<li>.Permalink can be called on any page to get its end URL. It’s particularly useful if you want to link to a page.
+That’s all we need for our list page. Let’s move onto a post.</li>
+</ol>
+<p>NOW, Finally&hellip; Posts!
+The posts live in the /content/posts/ directory and don&rsquo;t require an special naming convention.
+One tip the tutorial suggests is adding the date of the post to the file name.
+This just helps with finding stuff later.</p>
+<p>So, now I&rsquo;ll add my 8 posts, including this one :)
+Well, I&rsquo;ll start with three, set up the stuff, then see how things look!</p>
+<p>Just like the blog list page, these posts will try to use /layouts/_default/single.html.
+But we can create a layout specifically for posts at /layouts/posts/single.html.</p>
+<p>{{ define &ldquo;main&rdquo; }}</p>
+<!-- raw HTML omitted -->
+<p>Finally, I&rsquo;ll add the blog to the navigation.
+Open /layouts/partials/nav.html
+Add another list item:</p>
+<!-- raw HTML omitted -->
+<p>And voila, all the posts are showing up on the blog page :)
+Now I&rsquo;ll spend some time adding the other 5 posts&hellip;
+12:04pm</p>
+
+
+  
+<div class="post-info-last-mod">
+    created:
+    <time datetime="2023-02-23 11:10:00 &#43;0000 UTC" title="2023-02-23 11:10:00 &#43;0000 UTC">
+        February 23, 2023
+    </time>
+</div>
+
+
+    
+    
+
+
+  
+  <footer>
+    Website made by Ethan Cowan in 2023
+  </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Last Mod feature</title>
+
+<link rel="stylesheet" href="https://elocowan.github.io/sass/main.min.css">
+
+</head>
+
+<body>
+  <header>
+  <h1>
+    <a href="/">Ethan Cowan</a>
+  </h1>
+</header>
+
+  <nav>
+  <ul>
+    <li><a href="/">Now</a></li>
+    <li><a href="/posts/">Past</a></li>
+    <li><a href="/queue/">Queue</a></li>
+  </ul>
+</nav>
+
+  
+  <h1>Last Mod feature</h1>
+  <p>February 28, 2023</p>
+  <p>I made the <a href="/now">Now</a> page, and I want it to have a <em>last updated</em> feature.</p>
+<p>I found a <a href="https://makewithhugo.com/add-a-last-edited-date/">blog post</a> about how to do it.
+Two options, a manual way and a git way.
+I want to do the git way.</p>
+<blockquote>
+<p>Hugo can actually hook into your git (version control system) information and pull the last edited times from there. To enable it, just change this setting in your config.</p>
+</blockquote>
+<p>config.toml</p>
+<pre tabindex="0"><code>enableGitInfo = true
+</code></pre><blockquote>
+<p>This will now automatically pull n the last updated times and fill in <code>lastmod</code> for you - Neat!</p>
+</blockquote>
+<p>There&rsquo;s a longer form to add to the config to change the front matter dates:</p>
+<p>in config.toml</p>
+<pre tabindex="0"><code>[frontmatter]
+  lastmod = [&#34;lastmod&#34;, &#34;:git&#34;, &#34;date&#34;, &#34;publishDate&#34;]
+</code></pre><p>But then it doesn&rsquo;t work as I think when I add the code from the tutorial.
+I need a refresher on how Templates work in Hugo, cause right now they&rsquo;re not evaluating, they&rsquo;re just printing on the post page.</p>
+<p>This is a feeling of slight overwhelm, Why isn&rsquo;t it working?
+It&rsquo;s a feeling I want to get more familiar with.</p>
+<p>First thing I&rsquo;ll do is look at my other files that have templates that are working to see if I can find a mistake based on pattern matching.</p>
+<p>Actually, one thing I want to do anyway is make this a partial, a reusable chunk of code that I can use on many pages, not just on the Now page.</p>
+<p>So I&rsquo;m going to go at it from that angle.
+I did a similar thing with the footer element, so I&rsquo;ll use that as a model.</p>
+<p>First, I&rsquo;ll create a new file called updated.html.
+Important for me to remember, that&rsquo;s an html file.
+I&rsquo;ll put the templates in there.
+Then I&rsquo;ll add the template to the layout for single pages&hellip; Because that&rsquo;s kind of what I&rsquo;m remembering.
+The posts/pages themselves (the markdown files) are supposed to be &ldquo;content in its purest form&rdquo; and the logic and html stuff is supposed to happen in the layouts, I think.
+Am I wrong?</p>
+<p>So having saved updated.html with the following code:</p>
+<pre tabindex="0"><code>&lt;!-- Created Date --&gt;
+{{- $pubdate := .PublishDate.Format &#34;02.01.2006&#34; }}
+created: 
+&lt;time datetime=&#34;{{ .PublishDate }}&#34; title=&#34;{{ .PublishDate }}&#34;&gt;
+    {{ $pubdate }}
+&lt;/time&gt;
+
+&lt;!-- Last Updated Date --&gt;
+{{ if .Lastmod }}
+    {{ $lastmod := .Lastmod.Format &#34;02.01.2006&#34; }}
+    {{ if ne $lastmod $pubdate }} &lt;!-- &#34;ne&#34; means &#34;not equal&#34; in Go --&gt;
+        &lt;div class=&#34;post-info-last-mod&#34;&gt;
+            updated: 
+            &lt;time datetime=&#34;{{ .Lastmod }}&#34; title=&#34;{{ .Lastmod }}&#34;&gt;
+                {{ $lastmod }}
+            &lt;/time&gt;
+        &lt;/div&gt;
+    {{ end }}
+{{ end }}
+</code></pre><p>Next I&rsquo;ll test it by trying to add it to the default layout for single pages, called what?
+Now I&rsquo;m remembering&hellip; There&rsquo;s a baseof.html file, which is the basic layout&hellip;
+Then there&rsquo;s also a single.html layout, which looks like this:</p>
+<pre tabindex="0"><code>{{ define &#34;main&#34; }}
+  {{ .Content }}
+{{ end }}
+</code></pre><p>single.html is where the main block is defined.
+single.html just has the content in it&hellip; &ldquo;content in it&rsquo;s purest form&rdquo;
+So I guess that means I should be adding updated.html to baseof.html and not to single.html.</p>
+<p>Now here&rsquo;s what baseof.html looks like:</p>
+<pre tabindex="0"><code>&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  {{ partial &#34;meta.html&#34; . }}
+&lt;/head&gt;
+
+&lt;body&gt;
+  {{ partial &#34;header.html&#34; . }}
+  {{ partial &#34;nav.html&#34; . }}
+  {{ block &#34;main&#34; . }}
+  {{ end }}
+  {{ partial &#34;updated.html&#34; . }}
+  {{ partial &#34;footer.html&#34; . }}
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>So, when I add that updated.html as a partial to the baseof.html template, it works!
+It&rsquo;s a little bit buggy, because some of the pages don&rsquo;t have a Publish date.
+I wonder if only posts have a publish date&hellip;
+Why don&rsquo;t the regular markdown pages, like Now and About, have a publish date?
+I know that turning on enableGitInfo = true should allows hugo to get the lastmod info from git.</p>
+<p>There&rsquo;s a line the tutorial had me add that read:</p>
+<pre tabindex="0"><code>[frontmatter]
+  lastmod = [&#34;lastmod&#34;, &#34;:git&#34;, &#34;date&#34;, &#34;publishDate&#34;]
+</code></pre><p>I think I need to understand more about what that line does.
+Maybe I need to set publishDate to pull from git as well?</p>
+<p>When I try to understand what&rsquo;s going on in that line of code, I don&rsquo;t understand why lastmod is being set to an array with those various strings in it&hellip;
+But I see that&rsquo;s toml formatting&hellip;
+In yaml it would look like</p>
+<pre tabindex="0"><code>frontmatter:
+  lastmod:
+  - lastmod
+  - :git
+  - date
+  - publishDate
+</code></pre><p>Or maybe I need to have the updated.html partial pull from the the lastmod object instead of the .publishDate object&hellip;
+Lemme try something.</p>
+<p>After looking up the issue and finding answers on hugo discussion boards, the thing that fixes it is to make sure there is a valid date field in the front matter for every page.
+Without the date field, hugo fills in &ldquo;January 1, 0001&rdquo;
+I went through and added a date field, now all the pages have functioning information</p>
+<p>Last thing I want to do is see if I can add a little bit of CSS to make the font smaller so this information is less conspicuous.
+I used the css class selector &ldquo;post-info-last-mod&rdquo; to make the font .7em, same as the font in the footer.</p>
+<p>Nice!</p>
+
+
+  
+<div class="post-info-last-mod">
+    created:
+    <time datetime="2023-02-28 13:57:00 &#43;0000 UTC" title="2023-02-28 13:57:00 &#43;0000 UTC">
+        February 28, 2023
+    </time>
+</div>
+
+
+    
+    
+
+
+  
+  <footer>
+    Website made by Ethan Cowan in 2023
+  </footer>
+
+
+</body>
+</html>

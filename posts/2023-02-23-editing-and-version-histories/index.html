@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Editing and Version Histories</title>
+
+<link rel="stylesheet" href="https://elocowan.github.io/sass/main.min.css">
+
+</head>
+
+<body>
+  <header>
+  <h1>
+    <a href="/">Ethan Cowan</a>
+  </h1>
+</header>
+
+  <nav>
+  <ul>
+    <li><a href="/">Now</a></li>
+    <li><a href="/posts/">Past</a></li>
+    <li><a href="/queue/">Queue</a></li>
+  </ul>
+</nav>
+
+  
+  <h1>Editing and Version Histories</h1>
+  <p>February 23, 2023</p>
+  <p>I would like to start editing the posts that I&rsquo;ve got on the site now.
+But I don&rsquo;t want to lose any information about what they are/were like in their original state.
+So I think I need to use and understand git at this point.</p>
+<p>For context, I haven&rsquo;t initiated git on this project yet.
+And I definitely haven&rsquo;t pushed anything to github.
+And I&rsquo;m even farther away from publishing anything&hellip;</p>
+<p>But I am starting to think about version controls, I guess just because I&rsquo;m weird like that?
+I&rsquo;m &lsquo;weird like that&rsquo; in the sense that I want to be able to see how any of these documents change over time.
+&lsquo;Weird&rsquo; because I&rsquo;m not sure I&rsquo;ll ever look at the history, but I would like to be able to.
+I don&rsquo;t know WHY, and that&rsquo;s why I think it&rsquo;s weird.</p>
+<h2 id="how-does-git-work">How does git work?</h2>
+<p>So, what do I do first to get git going?
+First thing I&rsquo;m going is going to the <a href="https://git-scm.com/docs">git docs</a>.
+In the <a href="https://git-scm.com/docs/gittutorial">git tutorial</a>, there are simple instructions for placing a project under git revision control.
+just cd into the project folder and</p>
+<pre tabindex="0"><code>$ git init
+</code></pre><p>Git will reply</p>
+<pre tabindex="0"><code>Initialized empty Git repository in .git/
+</code></pre><p>I have to use <code>ls -a</code> to see the git repository in the directory, so I guess it&rsquo;s typically hidden.</p>
+<p>Next I am going to tell Git to take a snapshot of the contents of all files under the current directory with <em>git add</em>:</p>
+<pre tabindex="0"><code>$ git add .
+</code></pre><p>Now there is a whole bunch of stuff in the .git folder.</p>
+<pre tabindex="0"><code>Ethans-MacBook-Air:.git dreamer$ ls
+HEAD		description	index		objects
+config		hooks		info		refs
+</code></pre><p>Then the commit:</p>
+<pre tabindex="0"><code>$ git commit
+</code></pre><p>This command prompts me for a commit message.
+It happens to launch VSCode.
+What I want is for it to open a new terminal window and prompt me to enter the commit message in Vim.
+The answer is in the docs about <a href="https://git-scm.com/book/en/v2/Appendix-C:-Git-Commands-Setup-and-Config">setup and config</a>.</p>
+<pre tabindex="0"><code>git config --global core.editor &#34;vim --nofork&#34;
+</code></pre><p>Next time it should open the prompt to write a commit message in Vim in the terminal.</p>
+<p>Mission accomplished.
+Now there is a snapshot of the whole project as it stands now, at the end of the third day.
+I have gotten all of the posts into the website.
+The next step is to go in and edit them plus format them.</p>
+<h2 id="next-time">Next time</h2>
+<p>Some open questions are:</p>
+<ul>
+<li>How should I organize the posts? Because it&rsquo;s nice to have them in chronological order, but it would also be nice to set things up in series.</li>
+<li>What are some examples of other folks&rsquo; documentation websites?</li>
+<li>How can I set up next and previous links through a series of posts</li>
+<li>It would be cool to make a Dream series, a Feldenkrais series, and a Computer series
+<ul>
+<li>is the best way to do this with Tags? Categories? something else?</li>
+</ul>
+</li>
+</ul>
+
+
+  
+<div class="post-info-last-mod">
+    created:
+    <time datetime="2023-02-23 19:03:00 &#43;0000 UTC" title="2023-02-23 19:03:00 &#43;0000 UTC">
+        February 23, 2023
+    </time>
+</div>
+
+
+    
+    
+
+
+  
+  <footer>
+    Website made by Ethan Cowan in 2023
+  </footer>
+
+
+</body>
+</html>

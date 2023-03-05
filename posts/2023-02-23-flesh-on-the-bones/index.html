@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Flesh on the bones</title>
+
+<link rel="stylesheet" href="https://elocowan.github.io/sass/main.min.css">
+
+</head>
+
+<body>
+  <header>
+  <h1>
+    <a href="/">Ethan Cowan</a>
+  </h1>
+</header>
+
+  <nav>
+  <ul>
+    <li><a href="/">Now</a></li>
+    <li><a href="/posts/">Past</a></li>
+    <li><a href="/queue/">Queue</a></li>
+  </ul>
+</nav>
+
+  
+  <h1>Flesh on the bones</h1>
+  <p>February 23, 2023</p>
+  <p>9:12am</p>
+<p>The next bit of the process is still about the basics, but it&rsquo;s about putting more flesh on the bones of the website.</p>
+<p>Somehow it&rsquo;s important to me that I can imagine this is all getting set up in a way that will allow more growth in the future.
+I imagine eventually I&rsquo;ll be wanting to do and learn things about computer life that will go way beyond a static website &ndash; like learning new languages, or going through the Teach Yourself CS series, or building a habit tracker app, or building the amino acid app for Irene.
+But I want a place where I can document the process around all of these things.</p>
+<p>I want to document so that I can come back and refer to stuff that I forget.
+And I want to document because I like to document.
+It feels good to me to spend time in this way.
+It&rsquo;s alone time.
+It&rsquo;s my time.
+I&rsquo;m not even sure it&rsquo;s productive, but it&rsquo;s for myself.</p>
+<p>I&rsquo;d like to have a page of the website that&rsquo;s about stuff I want to work on&hellip; ideas I have for the future.
+All those app and project ideas can go in there.</p>
+<p>Anyway, the point is that I&rsquo;m starting with a website, a collection of stuff that I&rsquo;m working on, that I can organize and display using hugo to build HTML files.
+And it&rsquo;s a catchall, like a journal or a notebook or a sketchbook.
+And if I set it up in the right way, then it will provide an environment for me to do and document this other work I want to do.</p>
+<p>SO, back to the walkthrough.</p>
+<p>There&rsquo;s a section here where the author of the tutorial shows how to set up CSS.
+He is going to set up a Sass stylesheet.
+Sass is actually its own language, apparently.
+It&rsquo;s billed as &ldquo;the most mature, stable, and powerful professional grade CSS extension language in the world.&rdquo;
+&ldquo;CSS with Superpowers&rdquo;</p>
+<p>The /static/ directory is where all static assets live, and if there were a plain CSS file, it would go in the static directory.
+BUT, Sass needs to be processed into a CSS file.
+So it&rsquo;s not a static assett.
+For assets that need some form of processing, there is the /assets/ directory.
+So, inside /assets/ I&rsquo;ll make a directory called sass.</p>
+<p>And I&rsquo;ll paste in the Sass file the guy provides:</p>
+<p>body {
+width: 400px;
+margin: 0 auto;
+font-family: sans-serif;
+}</p>
+<p>nav ul {
+list-style: none;
+padding: 3px 5px;
+background: #111;</p>
+<p>a {
+color: #fff;
+text-decoration: none;</p>
+<pre><code>&amp;:hover {
+  text-decoration: underline;
+}
+</code></pre>
+<p>}</p>
+<p>li {
+display: inline;
+}
+}</p>
+<p>footer {
+background: #f2f2f2;
+padding: 2px 2px;
+font-size: .7em;
+text-align: center;
+}</p>
+<p>#map {
+height: 300px;
+}</p>
+<p>If I run the development server, is this Sass file going to change anything?
+Nope, because none of the pages <em>use</em> this sass file yet, because this sass file isn&rsquo;t referred to by any of the templates.</p>
+<p>So I have to add it to the templates.
+Easiest way to do this is to add it to baseof.html, because that template is the base of the other templates&hellip; so I add it in one place and it gets added to all the places.</p>
+<p>The code to add is in a format I haven&rsquo;t seen yet, so I&rsquo;m going to take it slow.
+{{ $style := resources.Get &ldquo;sass/main.scss&rdquo; | resources.ToCSS | resources.Minify }}</p>
+<!-- raw HTML omitted -->
+<p>I&rsquo;ve seen the double curly braces before, when I looked at layouts.
+In the layouts, the double curly braces are places that render content from other files.
+So in this case, we&rsquo;re rendering content from somewhere outside the baseof.html file</p>
+<p>I&rsquo;m not sure what it means when there is the &ldquo;$style&rdquo; word, but I think it&rsquo;s sort of declaring and assigning a variable $style.
+the operator &ldquo;:=&rdquo; is maybe the start of a process?
+I see a bunch of method calls in a row&hellip;
+There must be an object called &ldquo;resources&rdquo; because there are method calls</p>
+<ol>
+<li>resources.Get &ldquo;sass/main.scss&rdquo; (get that file)</li>
+<li>resources.ToCss (transform it into CSS)</li>
+<li>resources.Minify (minify? what exactly does that do? does it produce the Permalink that is used in the next line of code?)</li>
+</ol>
+<p>And then the <!-- raw HTML omitted --> tag refers to &ldquo;{{ $style.Permalink }}&rdquo;
+Seems like I understand enough to keep moving.</p>
+<p>There are these questions in my head about what I think is variable declaration and assignment using the := operator, and then I think this is also an example of piping, where the variable gets built through a process of method invocations.
+I think maybe these conventions come from the Go language.</p>
+<p>One last thing I can tell from looking at the CSS is that there will be things later on in this tutorial that will pull from this sass file.
+There&rsquo;s going to be an unordered list for the navigation.
+There&rsquo;s going to be a footer with a certain background color and text aligned in the middle.</p>
+<p>And there&rsquo;s something called #map - I&rsquo;m not sure what that does.</p>
+<p>But when I run the development server now, the only thing that happens comes from the body tag.
+The text moves over and the font changes.</p>
+<p>The next part of the tutorial is about partials.
+&ldquo;The idea behind a partial is simple: it&rsquo;s a file that can be included into a layout to reduce repetition or simply hide some complexity.
+You&rsquo;ll add a nav bar to your site with a partial.
+While you could add this logic directly to your baseof.html, sometimes it&rsquo;s nice to split a layout up into smaller partials so you don&rsquo;t need to deal with a 2000-line file.&rdquo;</p>
+<p>So, the nav partial:
+create a /partials directory in /layouts/
+add the following contents:</p>
+<!-- raw HTML omitted -->
+<p>Then include the partial in the baseof.html layout&hellip; with the line:
+{{ partial &ldquo;nav.html&rdquo; }}
+(again, the curly braces denote a piece of code that will render content from another file)
+(sidenote, when I think about this, I think about how hugo is a program that is going through all these files and at various points INJECTING content from one place into these placeholder {{ &hellip; }}
+This is happening at runtime.
+So this line goes into baseof.html, which now looks like this:</p>
+<p>&lt;!doctype html&gt;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>So I can see that now there is a {{ partial &hellip; }} and a {{ block &hellip; }}, and those are two different things.
+And when the pages render, now there is a nav bar.
+And the CSS comes into play, the nav bar is black and the text is white and the text underlines when I hover&hellip;</p>
+<p>SO, the partial is a building block.
+Other words could be &ldquo;element&rdquo; or &ldquo;building block&rdquo; or I think in react, these were like separate &ldquo;Functions&rdquo;?
+I could make a footer partial as well.
+I could make a sidebar partial.
+And if these are included in the single.html layout or whatever layout, then every page on the website that refers to those layouts will have those partials included.</p>
+<p>The tutorial wants to refactor baseof.html a bit to demonstrate more about the power of partials.
+It wants to make a <!-- raw HTML omitted --> partial.</p>
+<p>What&rsquo;s interesting is that when I do the first part of the refactor and create the meta.html partial as so:</p>
+<!-- raw HTML omitted -->
+<p>The thing that has changed is that instead of just having the {{ .Page.Title }}, there is a new function call being made to &ldquo;print&rdquo; the page title.
+And that means the variable will need the context of the current page.
+Without changing <em>something</em> to provide the context of the current page, the code won&rsquo;t work.
+It <em>will</em> build, but the title will not show up correctly in the tab in the browser.
+Instead of &ldquo;Home&rdquo; or &ldquo;About&rdquo; the browser will show <!-- raw HTML omitted --></p>
+<p>What&rsquo;s cool is that I noticed this problem in the broswer, but I can also see there is a problem through error messages given to me by the development server.
+ERROR 2023/02/23 10:04:43 render of &ldquo;home&rdquo; failed: &ldquo;/Users/dreamer/lowerpower/layouts/_default/baseof.html:4:5&rdquo;: execute of template failed: template: _default/list.html:4:5: executing &ldquo;_default/list.html&rdquo; at &lt;partial &ldquo;meta.html&rdquo;&gt;: error calling partial: &ldquo;/Users/dreamer/lowerpower/layouts/partials/meta.html:2:22&rdquo;: execute of template failed: template: partials/meta.html:2:22: executing &ldquo;partials/meta.html&rdquo; at &lt;.Page.Title&gt;: invalid value; expected string</p>
+<p>The reason is that I forgot one little detail.
+I have to go back to the baseof.html file and add in a little &ldquo;.&rdquo;
+So now baseof.html looks like this:</p>
+<p>&lt;!doctype html&gt;</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>&ldquo;That little &ldquo;.&rdquo; at the end is passing the context of the current page, which allows the partial to print out the current page&rsquo;s title.
+You&rsquo;ll see this come up a lot in your Hugo sites, just you wait.&rdquo;</p>
+<p>The next page is about templating.
+It&rsquo;s good! And I&rsquo;m tired from what I&rsquo;ve just covered here, so more in the next entry.</p>
+<p>2023-02-23 10:24am</p>
+<p>2023-02-23 10:39am
+Templating
+The double curlys &ldquo;{{&rdquo; and &ldquo;}}&rdquo; is templating.
+This is inherited from Go templating.
+Templating allows you to render stuff from another location in the file system.
+Templating also allows you to use variables, loop over arrays, check conditions, and run functions.
+Maybe more?
+Anyway, when Hugo sees the curly braces, it is ready to DO STUFF inside those curly braces.</p>
+<p>&ldquo;Hugo uses Go templating as its templating language in layouts.&rdquo;
+One way to use it is for Output.
+That&rsquo;s the rendering ocntent from other places that I&rsquo;ve used so far.
+You can render page variables from front matter.
+You can render global variables from the config.toml file.
+This is taking information from one &lsquo;central&rsquo; location and making it available to be rendered or injected through a page.</p>
+<p>You can also use templating for inputing a variable.
+Variables have the syntax $&hellip; and are assigned with := and strings require double quotes &quot;&quot;
+{{ $favorite_food := &ldquo;stew&rdquo; }}</p>
+<p>You can also use templating to check conditions and use certain outputs only if certain conditions are met.
+You can also iterate over an array or slice using range.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>{{ $best_friends := slice &ldquo;pumbaa&rdquo; &ldquo;timon&rdquo; &ldquo;nala&rdquo; &ldquo;rafiki&rdquo; }}</p>
+<!-- raw HTML omitted -->
+<p>These are a few things that are possible with Templating.
+There is a LOT more possible.
+Best to look at the templating documentation to learn what else is possible.</p>
+<p>The basic use of templating can be seen through adding a footer.
+First add a parameter to the config.toml file.
+Do this by writing a [params] object (for things on this site rather than special Hugo things)
+and add my name:</p>
+<p>[params]
+name = &lsquo;Ethan Cowan&rsquo;
+Now this param will be available through the site.</p>
+<p>Then we&rsquo;ll add the footer partial as a footer.html in /layouts/partials/
+{{ with .Params.hide_footer }}</p>
+<!-- raw HTML omitted -->
+<p>{{ else }}</p>
+<!-- raw HTML omitted -->
+<p>This is getting set up with some conditional logic using &ldquo;with&rdquo;, so that if we want to hide the footer on one page, we have the option to do that by setting hide_footer: true in the front matter of any given page.</p>
+<p>Then we call the partial before <!-- raw HTML omitted --> in the baseof.html layout:
+{{ partial &ldquo;footer.html&rdquo; . }} &lt;&mdash;- again, there is the dot for the context of this particular page, tho I&rsquo;m not sure if it&rsquo;s ever not needed&hellip; I&rsquo;m a little fuzzy on how that works&hellip;</p>
+<p>And then the footer shows up on the home page.
+And then it&rsquo;s possible to hide the footer on the about page by setting hide_footer: true in the front matter under the title.
+I&rsquo;m curious if hide_footer is a built in param or if you can name any param you want&hellip;
+So I&rsquo;m going to try changing the name to hide_booter to see if it still works if it&rsquo;s named the same in both places&hellip;
+And the answer is Yes, it does work even when it says hide_booter.
+I think it works because it is set to a boolean value, True or False.
+And I bet the conditionals work by just checking if a certain key is set to a certain value.
+Doesn&rsquo;t matter what the key name is because the parser is checking the value, and doesn&rsquo;t care about the key.</p>
+<p>Next is the creation of the blog!
+2023-02-23 11:10am</p>
+
+
+  
+<div class="post-info-last-mod">
+    created:
+    <time datetime="2023-02-23 09:12:00 &#43;0000 UTC" title="2023-02-23 09:12:00 &#43;0000 UTC">
+        February 23, 2023
+    </time>
+</div>
+
+
+    
+    
+
+
+  
+  <footer>
+    Website made by Ethan Cowan in 2023
+  </footer>
+
+
+</body>
+</html>
