@@ -25,7 +25,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ethancowan.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: elocowan
 instagram_username: elocowan
-Bluesky_username: elocowan
+bluesky_username: elocowan
 github_username: elocowan
 
 # Build settings
