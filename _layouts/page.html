@@ -10,7 +10,7 @@ layout: default
     background-color: #ddd;
   }
   .page-metadata {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-style: italic;
     color: #666;
     line-height: 1;
@@ -33,14 +33,15 @@ layout: default
 
 <hr class="metadata-divider">
 
-<div class="page-metadata"> 
-	{% if page.date %}
-	<p class="created-date">
-		created: {{ page.date | date: "%B %d, %Y" }}
-	</p> 
-	{% endif %} 
-	{% if page.last_modified_at %} 
-	<p class="updated-date">
-		updated: {{ page.last_modified_at | date: "%B %d, %Y" }}</p> 
-	{% endif %}
+<div class="page-metadata">
+  <p class="date-info">
+    {% if page.date %}
+      created: {{ page.date | date: "%B %d, %Y" }}
+      {% if page.last_modified_at %}
+        <br>updated: {{ page.last_modified_at | date: "%B %d, %Y" }}
+      {% endif %}
+    {% elsif page.last_modified_at %}
+      updated: {{ page.last_modified_at | date: "%B %d, %Y" }}
+    {% endif %}
+  </p>
 </div>
