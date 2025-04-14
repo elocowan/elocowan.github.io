@@ -6,10 +6,12 @@ layout: default
 
 <div class="page-metadata"> 
 	{% if page.date %}
-	 <p class="created-date">Created: {{ page.date | date: "%B %d, %Y" }}</p> 
+	<p class="created-date">
+		created: {{ page.date | date: "%B %d, %Y" }}
+	</p> 
 	{% endif %} 
-
 	{% if page.last_modified_at %} 
-	<p class="updated-date">Last updated: {{ page.last_modified_at | date: "%B %d, %Y" }}</p> 
-	{% endif %} 
+	<p class="updated-date">
+		updated: {{ page.last_modified_at | date: "%B %d, %Y" }}</p> 
+	{% endif %}
 </div>
