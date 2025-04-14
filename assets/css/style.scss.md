@@ -13,6 +13,8 @@
 }
 
 .page-metadata {
+  border-top: 3px solid red; 
+  padding-top: 10px;
   font-size: 0.8rem;
   font-style: italic;
   color: #666;
