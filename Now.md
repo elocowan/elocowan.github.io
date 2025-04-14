@@ -4,8 +4,6 @@ title: Now
 permalink: /now/
 
 ---
-Updated 2025-04-14
-
 After moving my business site to [feldenpax.com](https://feldenpax.com), I'm building my personal site. 
 
 This shift has something to do with longing:
@@ -15,3 +13,5 @@ This shift has something to do with longing:
 - I want to develop an ethical practice to go along with my physical practices
 
 I think maybe working on my personal website can help, but I'm not sure.
+
+Updated 2025-04-14
