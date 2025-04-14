@@ -14,5 +14,3 @@ This shift has something to do with longing:
 - I want to develop an ethical practice to go along with my physical practices
 
 I think maybe working on my personal website can help, but I'm not sure.
-
-Updated 2025-04-14
