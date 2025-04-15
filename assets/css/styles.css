@@ -1,18 +1,13 @@
-.sort-options {
-  margin-bottom: 20px;
+.subtle-divider {
+  margin: 2rem 0 1rem;
+  border: 0;
+  height: 1px;
+  background-color: #eaecef;
+  opacity: 0.3;
 }
 
-.sort-option {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.sort-option.active {
-  font-weight: bold;
-}
-
-h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
+.page-meta {
+  font-size: 0.85rem;
+  color: #6a737d;
+  margin-top: 0.5rem;
 }

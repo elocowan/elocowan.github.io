@@ -2,7 +2,7 @@
 layout: page
 title: Now
 permalink: /now/
-date: 2025-04-14
+created: 2025-04-14
 last_modified_at: 2025-04-14
 ---
 After moving my business site to [feldenpax.com](https://feldenpax.com), I'm building my personal site. 
