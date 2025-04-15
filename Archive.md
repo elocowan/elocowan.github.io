@@ -7,8 +7,6 @@ last_modified_at: 2025-04-14
 ---
 
 <div class="archive-container">
-  <h1>Archive</h1>
-  
   <div class="sort-options">
     <span>Sort by: </span>
     <a href="#" class="sort-option active" data-sort="last-update">last update</a>,
@@ -33,7 +31,6 @@ last_modified_at: 2025-04-14
         <ul class="page-list">
           {% for page in year_month.items %}
             <li>
-              <span class="page-date">{{ page.last_modified_at | date: "%b %-d, %Y" }}</span>
               <a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
             </li>
           {% endfor %}
@@ -61,7 +58,6 @@ last_modified_at: 2025-04-14
         <ul class="page-list">
           {% for page in year_month.items %}
             <li>
-              <span class="page-date">{{ page.date | date: "%b %-d, %Y" }}</span>
               <a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
             </li>
           {% endfor %}
@@ -143,7 +139,7 @@ last_modified_at: 2025-04-14
   }
   
   .page-list li {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
   }
   
   .page-date {
