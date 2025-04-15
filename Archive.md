@@ -31,7 +31,7 @@ last_modified_at: 2025-04-14
         <ul class="page-list">
           {% for page in year_month.items %}
             <li>
-              <a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
+              <a href="{{ page.url | relative_url }}" class="no-arrow">{{ page.title | escape }}</a>
             </li>
           {% endfor %}
         </ul>
@@ -58,7 +58,7 @@ last_modified_at: 2025-04-14
         <ul class="page-list">
           {% for page in year_month.items %}
             <li>
-              <a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
+              <a href="{{ page.url | relative_url }}" class="no-arrow">{{ page.title | escape }}</a>
             </li>
           {% endfor %}
         </ul>
@@ -91,7 +91,7 @@ last_modified_at: 2025-04-14
               {% assign page_first_letter = page.title | slice: 0, 1 | upcase %}
               {% if page_first_letter == letter %}
                 <li>
-                  <a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>
+                  <a href="{{ page.url | relative_url }}" class="no-arrow">{{ page.title | escape }}</a>
                 </li>
               {% endif %}
             {% endif %}
