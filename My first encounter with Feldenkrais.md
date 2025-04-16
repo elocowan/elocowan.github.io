@@ -26,4 +26,4 @@ Maybe they were thinking, "I didn't sign up for a class in the dance department 
 Not even the teacher who assigned the book seemed inclined to make a discussion of it. 
 
 I felt sparky about the book, like, *this Feldenkrais guy is really on about something, even though I can't tell quite what yet*, but most of the other people in my class seemed bored, maybe even a little turned off by it.
-Little did I know this was the first of many times my interest in Feldenkrais would seem disjoint to the curiosity of most people.
+Little did I know this was the first of many times my interest in Feldenkrais would seem disjoint from the curiosity of most people.
