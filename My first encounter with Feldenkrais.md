@@ -1,0 +1,29 @@
+---
+layout: page
+title: My first encounter with Feldenkrais
+permalink: /1st
+date: 2025-04-16
+last_modified_at: 2025-04-16
+---
+I first encountered Feldenkrais in 2007 in written form.
+I was taking a somatic studies class within the dance department at Oberlin college and we were assigned his book, Awareness Through Movement. 
+Compared to the other books in the class, which mostly conveyed new-agey ideas in pablum language, ATM seemed more like a philosophy book.
+Big ideas, big claims in an idiosyncratic voice right from the first line: "We act in accordance with our self-image."
+
+What does he mean, self-image?
+
+>"This self-image&mdash;which, in turn, governs our every act&mdash;is conditioned in varying degree by three factors, heritage, education, and self education."
+
+Whoa, this could be good, I thought.
+
+At the time, I was enamored of philosophy books.
+I fancied myself somewhat intellectual and admired intellectual prowess in others. 
+I was excited to discuss this conceptually challenging and definitely interesting book.
+But when the time came for discussion, no one else seemed excited.
+
+Maybe they didn't get it?
+Maybe they were thinking, "I didn't sign up for a class in the dance department to *think* this hard."
+Not even the teacher who assigned the book seemed inclined to make a discussion of it. 
+
+I felt sparky about the book, like, *this Feldenkrais guy is really on about something, even though I can't tell quite what yet*, but most of the other people in my class seemed bored, maybe even a little turned off by it.
+Little did I know this was the first of many times my interest in Feldenkrais would seem disjoint to the curiosity of most people.
