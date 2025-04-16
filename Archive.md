@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Archive
+menu: main
 permalink: /archive/
 date: 2025-04-14
 last_modified_at: 2025-04-14

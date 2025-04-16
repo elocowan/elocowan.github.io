@@ -34,6 +34,51 @@ layout: default
       {% if page.date and page.last_modified_at %} <br> {% endif %}
       {% if page.last_modified_at %}Updated: {{ page.last_modified_at | date: "%B %d, %Y" }}{% endif %}
     </p>
-  </div>
+    {% unless page.url == "/" %}
+      <div class="backlinks">
+        {% assign current_url = page.url %}
+        {% assign url_without_slash = current_url | remove: '/' %}
+        {% assign backlinks = "" | split: "" %}
+        
+        {% for p in site.pages %}
+          {% if p.url != current_url %}
+            {% assign content_str = p.content | strip %}
+            {% if content_str contains current_url or content_str contains url_without_slash %}
+              {% assign excluded_pages = "/,/archive/,/now/" | split: "," %}
+              {% unless excluded_pages contains p.url %}
+                {% assign backlink = p %}
+                {% assign backlinks = backlinks | push: backlink %}
+              {% endunless %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        
+        {% if backlinks.size > 0 %}
+          <p class="backlinks-text">
+            <span class="backlinks-label">Backlinks:</span>
+            {% for link in backlinks %}
+              <a href="{{ link.url }}">{{ link.title }}</a>{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div>
+
+      <style>
+        .backlinks {
+          margin-top: 5px;
+          padding-top: 2px;
+          font-size: 0.9em;
+        }
+        
+        .backlinks-label {
+          font-weight: bold;
+          margin-right: 5px;
+        }
+        
+        .backlinks-text {
+          line-height: 1.5;
+        }
+      </style>
+    {% endunless %}  </div>
 
 </article>
