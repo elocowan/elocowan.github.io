@@ -9,7 +9,7 @@ last_modified_at: 2025-04-17
 How do I introduce myself?
 
 I seek resolution in my life through forgiveness.
-All my father figures have had warm, dry senses of humor. 
+All my father figures had warm, dry senses of humor. 
 Jeph Cowan, Dennis Leri, Steve Paxton, Feldenkrais.
 I enjoy living a simple life.
 The moments when I come to know myself in a deeper way make my life worth living.
