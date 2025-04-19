@@ -15,4 +15,4 @@ I mostly focus on practicing my values through [Feldenkrais](/feldenkrais), Cont
 This personal website is part of my quest. 
 If U want to learn about the professional services I offer, please visit [feldenpax.com](https://feldenpax.com).
 
-My [now](/Now) page shows my latest foci.
+My [now](/now) page shows my latest foci.
