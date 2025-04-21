@@ -40,7 +40,7 @@ Most of my internet usage during my adolescence was private.
 I looked at porn, read erotic stories online.
 I wasn't part of any online communities or message boards.
 
-In high school I downloaded music from napster.
+In high school I downloaded music via napster.
 
 In college I got an oberlin.edu email account.
 Signed up for gmail my senior year in 2007, early enough to get my firstname.lastname at gmail dot com.
