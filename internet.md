@@ -17,7 +17,7 @@ I am also intrigued by Derek Sivers' idea that his personal website is an Autobi
 
 I used to think social media was about posturing and marketing, but neither of those frames were very fun, so now I'm exploring, What if social media platforms are places to play various games?
 
-{% twitter https://x.com/elocowan/status/1914364276606697581 %}
+[oh twitter is a video game](https://x.com/elocowan/status/1914364276606697581)
 <br>
 ### A history of how I have related to the internet: 
 
