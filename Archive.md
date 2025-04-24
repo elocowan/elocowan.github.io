@@ -18,9 +18,15 @@ last_modified_at: 2025-04-22 11:49:57 -06:00
   <!-- Last Update View (default) -->
   <div class="sort-view last-update-view" style="display: block;">
     {% assign valid_pages = site.pages | where_exp: "item", "item.path != null" %}
-    {% assign pages_with_dates = valid_pages | where_exp: "item", "item.last_modified_at != nil" %}
-    {% if pages_with_dates.size > 0 %}
-      {% assign sorted_pages = pages_with_dates | sort: 'last_modified_at' | reverse %}
+    
+    <!-- Get pages with last_modified_at -->
+    {% assign updated_pages = valid_pages | where_exp: "item", "item.last_modified_at != nil" %}
+    
+    {% if updated_pages.size > 0 %}
+      <!-- Sort pages by last_modified_at -->
+      {% assign sorted_pages = updated_pages | sort: 'last_modified_at' | reverse %}
+      
+      <!-- Force consistent date formatting using the date filter -->
       {% assign grouped_pages = sorted_pages | group_by_exp: "item", "item.last_modified_at | date: '%Y-%m'" %}
       
       {% for year_month in grouped_pages %}
@@ -48,9 +54,15 @@ last_modified_at: 2025-04-22 11:49:57 -06:00
   <!-- Creation Date View (hidden by default) -->
   <div class="sort-view creation-date-view" style="display: none;">
     {% assign valid_pages = site.pages | where_exp: "item", "item.path != null" %}
-    {% assign pages_with_dates = valid_pages | where_exp: "item", "item.date != nil" %}
-    {% if pages_with_dates.size > 0 %}
-      {% assign sorted_pages = pages_with_dates | sort: 'date' | reverse %}
+    
+    <!-- This approach handles both full dates (with time) and simple dates (just year-month-day) -->
+    {% assign date_pages = valid_pages | where_exp: "item", "item.date != nil" %}
+    
+    {% if date_pages.size > 0 %}
+      <!-- Sort by date -->
+      {% assign sorted_pages = date_pages | sort: 'date' | reverse %}
+      
+      <!-- Use the date filter to handle different date formats consistently -->
       {% assign grouped_pages = sorted_pages | group_by_exp: "item", "item.date | date: '%Y-%m'" %}
       
       {% for year_month in grouped_pages %}
@@ -65,6 +77,8 @@ last_modified_at: 2025-04-22 11:49:57 -06:00
             {% if item.title and item.url != "/archive/" %}
               <li>
                 <a href="{{ item.url | relative_url }}" class="no-arrow">{{ item.title | escape }}</a>
+                <!-- For debugging, you can uncomment this to see the date format -->
+                <!-- <span>({{ item.date }})</span> -->
               </li>
             {% endif %}
           {% endfor %}
