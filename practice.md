@@ -1,11 +1,10 @@
 ---
-layout: page
-title: Practice
-permalink: /practice
-date: 2025-04-21 19:41:56 -06:00
-last_modified_at: 2025-04-22 11:49:24 -06:00
+date: 2025-04-24 10:40:43 -06:00
+last_modified_at: 2025-04-24 10:44:38 -06:00
 ---
-People *do* practices.\
+People _do_ practices.  
 Often people form identities around practices.
 
-The deeper part of "turning pro" is having a practice. (Pressfield)
+The deeper part of “turning pro” is having a practice. (Pressfield)
+
+Practice so you can play. (lesson learned through relating to Robin Eubanks)
