@@ -2,8 +2,8 @@
 layout: page
 title: Internet
 permalink: /internet
-date: 2025-04-21
-last_modified_at: 2025-04-21
+date: 2025-04-21 19:41:56 -06:00
+last_modified_at: 2025-04-22 10:11:18 -06:00
 ---
 ### How do I relate to the internet? 
 
@@ -17,7 +17,7 @@ I am also intrigued by Derek Sivers' idea that his personal website is an Autobi
 
 I used to think social media was about posturing and marketing, but neither of those frames were very fun, so now I'm exploring, What if social media platforms are places to play various games?
 
-[oh twitter is a video game](https://x.com/elocowan/status/1914364276606697581)
+[oh twitter is a video game](/twitter)
 <br>
 ### A history of how I have related to the internet: 
 

@@ -2,8 +2,8 @@
 layout: page
 title: Feldenkrais
 permalink: /feldenkrais
-date: 2025-04-16
-last_modified_at: 2025-04-16
+date: 2025-04-21 19:41:56 -06:00
+last_modified_at: 2025-04-22 11:49:51 -06:00
 ---
 Feldenkrais refers to a man and a culture of [practice](/practice).
 The man Moshe Feldenkrais lived a wild, influential life from 1904-1984. 

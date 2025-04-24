@@ -2,8 +2,8 @@
 layout: page
 title: Values
 permalink: /values
-date: 2025-04-19
-last_modified_at: 2025-04-19
+date: 2025-04-21 19:41:56 -06:00
+last_modified_at: 2025-04-22 11:49:16 -06:00
 ---
 A lot of the time I only see my values out of the corner of my eye, working away at the edges of my perception, influencing me from almost behind the scenes.
 I know they shape my life, but I rarely perceive them clearly.

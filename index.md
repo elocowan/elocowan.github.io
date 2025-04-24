@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Start Here
+title: Starting Points
 menu: main
 permalink: /
-date: 2025-04-16
-last_modified_at: 2025-04-21
+date: 2025-04-21 19:41:56 -06:00
+last_modified_at: 2025-04-23 11:30:32 -06:00
 ---
-How do I introduce myself?
+How would I like to introduce myself?
 
 I [value](/values.md) forgiveness, humor, simplicity, self-knowledge, and fun.
 I practice these through [Feldenkrais](/feldenkrais), Contact Improvisation, Writing and Family.

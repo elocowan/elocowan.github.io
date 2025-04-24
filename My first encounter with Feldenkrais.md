@@ -2,8 +2,8 @@
 layout: page
 title: My first encounter with Feldenkrais
 permalink: /1st
-date: 2025-04-16
-last_modified_at: 2025-04-16
+date: 2025-04-21 19:41:56 -06:00
+last_modified_at: 2025-04-22 10:14:04 -06:00
 ---
 I first encountered Feldenkrais in 2007 in written form.
 I was taking a somatic studies class within the dance department at Oberlin college and we were assigned his book, Awareness Through Movement. 
